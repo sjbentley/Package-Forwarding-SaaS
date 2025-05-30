@@ -1,0 +1,138 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-white/10 selection:text-white;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass-morphism {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
+  }
+  
+  .neo-blur {
+    @apply backdrop-blur-2xl bg-black/40 border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-br from-white via-white/90 to-white/70 bg-clip-text text-transparent;
+  }
+  
+  .purple-gradient {
+    @apply bg-gradient-to-br from-deutscher-purple via-deutscher-purple-light to-[#D6BCFA] text-transparent;
+  }
+
+  .neo-card {
+    @apply rounded-xl bg-gradient-to-br from-deutscher-purple-darker/80 to-deutscher-purple-dark/70 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+}
+
+/* Add responsive utilities */
+@layer utilities {
+  .xs\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+    .xs\:inline {
+    display: inline;
+  }
+  
+  .xs\:hidden {
+    display: none;
+  }
+  
+  @media (min-width: 480px) {
+    .xs\:inline {
+      display: inline;
+    }
+    
+    .xs\:hidden {
+      display: none;
+    }
+    
+    .xs\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  .responsive-container {
+    @apply w-full px-4 sm:px-6 md:px-8 lg:px-10;
+  }
+  
+  .responsive-text {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+}
+
+#root {
+  @apply w-full max-w-full p-0 m-0 text-left;
+}
+
+@layer components {
+  .company-logos {
+    @apply text-center py-8 bg-background text-muted-foreground;
+  }
+
+  .company-logos__title {
+    @apply mb-8 text-lg font-semibold text-muted-foreground;
+  }
+
+  .company-logos__list {
+    @apply flex flex-wrap gap-8 justify-center items-center;
+  }
+
+  .company-logos__logo {
+    @apply h-10 opacity-70 transition-opacity duration-300;
+  }
+
+  .company-logos__logo:hover {
+    @apply opacity-100;
+  }
+}
