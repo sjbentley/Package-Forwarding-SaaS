@@ -1,15 +1,17 @@
-
 import React from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const StoreHero: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="pt-28 pb-16 px-4 relative overflow-visible">
       <div className="container mx-auto max-w-4xl relative text-center z-10">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gradient">
-          Top Marken
+          {t('storeHeroHeadline')}
         </h1>
         <p className="text-xl text-gray-300 mb-8">
-          Wir liefern bis vor deine Haustür — schnell und einfach! 
+          {t('storeHeroSubline')}
         </p>
       </div>
       

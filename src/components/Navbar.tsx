@@ -8,6 +8,7 @@ import { Switch } from '@/components/ui/switch';
 import { Plane, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LanguageSelector from './LanguageSelector';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,6 +20,7 @@ const Navbar = () => {
   const [phone, setPhone] = useState('');
   const [country, setCountry] = useState('');
   const [isPrivacyPolicyAccepted, setIsPrivacyPolicyAccepted] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +49,7 @@ const Navbar = () => {
     e.preventDefault();
 
     if (!isPrivacyPolicyAccepted) {
-      alert("Bitte akzeptieren Sie die Datenschutzrichtlinie, um fortzufahren.");
+      alert(t('navbarPrivacyAlert'));
       return;
     }
 
@@ -81,28 +83,28 @@ const Navbar = () => {
             className="text-gray-300 hover:text-white transition-colors"
             onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}
           >
-            Funktionen
+            {t('navbarFeatures')}
           </a>
           <a 
             href="#testimonials" 
             className="text-gray-300 hover:text-white transition-colors"
             onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }}
           >
-            Kundenstimmen
+            {t('navbarTestimonials')}
           </a>
           <a 
             href="#pricing-section" 
             className="text-gray-300 hover:text-white transition-colors"
             onClick={(e) => { e.preventDefault(); scrollToSection('pricing-section'); }}
           >
-            Preise
+            {t('navbarPricing')}
           </a>
           <a 
             href="#calculator-section" 
             className="text-gray-300 hover:text-white transition-colors"
             onClick={(e) => { e.preventDefault(); scrollToSection('calculator-section'); }}
           >
-            Rechner
+            {t('navbarCalculator')}
           </a>
           <LanguageSelector />
         </div>
@@ -111,82 +113,82 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-3">
           <Link to="/dashboard">
             <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
-              Demo
+              {t('navbarDemo')}
             </Button>
           </Link>
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
               <Button className="bg-deutscher-purple hover:bg-deutscher-purple-light text-white">
-                Anmelden
+                {t('navbarLogin')}
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px] bg-[#161A1F] text-white border-white/10 overflow-y-auto max-h-[90vh]">
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-gradient">Erstelle dein PakSend® Konto</DialogTitle>
+                <DialogTitle className="text-2xl font-bold text-gradient">{t('navbarCreateAccountTitle')}</DialogTitle>
                 <DialogDescription className="text-gray-300">
-                  Jetzt registrieren und deine Virtuelle Adresse sichern.
+                  {t('navbarCreateAccountDesc')}
                 </DialogDescription>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4 mt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="firstName" className="text-white">Vorname</Label>
+                    <Label htmlFor="firstName" className="text-white">{t('navbarFirstName')}</Label>
                     <Input 
                       id="firstName" 
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       className="bg-black/20 border-white/20 text-white" 
-                      placeholder="Ihren Vornamen" 
+                      placeholder={t('navbarFirstNamePlaceholder')} 
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName" className="text-white">Nachname</Label>
+                    <Label htmlFor="lastName" className="text-white">{t('navbarLastName')}</Label>
                     <Input 
                       id="lastName" 
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       className="bg-black/20 border-white/20 text-white" 
-                      placeholder="Ihren Nachnamen" 
+                      placeholder={t('navbarLastNamePlaceholder')} 
                       required
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="country" className="text-white">Land</Label>
+                  <Label htmlFor="country" className="text-white">{t('navbarCountry')}</Label>
                   <Select value={country} onValueChange={setCountry} required>
                     <SelectTrigger id="country" className="bg-black/20 border-white/20 text-white">
-                      <SelectValue placeholder="Wählen Sie Ihr Land aus" />
+                      <SelectValue placeholder={t('navbarCountryPlaceholder')} />
                     </SelectTrigger>
                     <SelectContent className="bg-[#161A1F] text-white border-white/10">
-                      <SelectItem value="germany">Deutschland</SelectItem>
-                      <SelectItem value="austria">Österreich</SelectItem>
-                      <SelectItem value="belgium">Belgien</SelectItem>
+                      <SelectItem value="germany">{t('navbarGermany')}</SelectItem>
+                      <SelectItem value="austria">{t('navbarAustria')}</SelectItem>
+                      <SelectItem value="belgium">{t('navbarBelgium')}</SelectItem>
                       {/* Add other countries */}
                     </SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white">E-Mail</Label>
+                  <Label htmlFor="email" className="text-white">{t('navbarEmail')}</Label>
                   <Input 
                     id="email" 
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="bg-black/20 border-white/20 text-white" 
-                    placeholder="Ihre E-Mail Adresse" 
+                    placeholder={t('navbarEmailPlaceholder')} 
                     required
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-white">Telefonnummer</Label>
+                  <Label htmlFor="phone" className="text-white">{t('navbarPhone')}</Label>
                   <Input 
                     id="phone" 
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="bg-black/20 border-white/20 text-white" 
-                    placeholder="Ihre Telefonnummer" 
+                    placeholder={t('navbarPhonePlaceholder')} 
                     required
                   />
                 </div>
@@ -199,7 +201,8 @@ const Navbar = () => {
                       className="bg-black/20 border-white/20 text-deutscher-purple"
                     />
                     <Label htmlFor="privacyPolicy" className="text-white">
-                      Ich akzeptiere die <a href="/privacy-policy" className="text-deutscher-purple underline">Datenschutzrichtlinie</a>.
+                      {t('navbarAcceptPrivacy')}
+                      <a href="/privacy-policy" className="text-deutscher-purple underline">{t('navbarPrivacyPolicy')}</a>.
                     </Label>
                   </div>
                 </div>
@@ -207,7 +210,7 @@ const Navbar = () => {
                   type="submit" 
                   className="w-full bg-deutscher-purple hover:bg-deutscher-purple-light text-white mt-4"
                 >
-                  Konto erstellen 
+                  {t('navbarCreateAccountButton')}
                 </Button>
               </form>
             </DialogContent>
@@ -232,108 +235,108 @@ const Navbar = () => {
               className="text-gray-300 hover:text-white transition-colors"
               onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}
             >
-              Funktionen
+              {t('navbarFeatures')}
             </a>
             <a 
               href="#testimonials" 
               className="text-gray-300 hover:text-white transition-colors"
               onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }}
             >
-              Kundenstimmen
+              {t('navbarTestimonials')}
             </a>
             <a 
               href="#pricing-section" 
               className="text-gray-300 hover:text-white transition-colors"
               onClick={(e) => { e.preventDefault(); scrollToSection('pricing-section'); }}
             >
-              Preise
+              {t('navbarPricing')}
             </a>
             <a 
               href="#calculator-section" 
               className="text-gray-300 hover:text-white transition-colors"
               onClick={(e) => { e.preventDefault(); scrollToSection('calculator-section'); }}
             >
-              Rechner
+              {t('navbarCalculator')}
             </a>
             <LanguageSelector />
             <Link to="/dashboard" className="w-full">
               <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 w-full">
-                Demo
+                {t('navbarDemo')}
               </Button>
             </Link>
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
                 <Button className="bg-deutscher-purple hover:bg-deutscher-purple-light text-white w-full">
-                  Anmelden
+                  {t('navbarLogin')}
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px] bg-[#161A1F] text-white border-white/10 overflow-y-auto max-h-[90vh]">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold text-gradient">Erstelle dein PakSend® Konto</DialogTitle>
+                  <DialogTitle className="text-2xl font-bold text-gradient">{t('navbarCreateAccountTitle')}</DialogTitle>
                   <DialogDescription className="text-gray-300">
-                    Jetzt virtuelle Adresse sichern.
+                    {t('navbarCreateAccountDesc')}
                   </DialogDescription>
                 </DialogHeader>
                 <form onSubmit={handleSubmit} className="space-y-4 mt-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName" className="text-white">Vorname</Label>
+                      <Label htmlFor="firstName" className="text-white">{t('navbarFirstName')}</Label>
                       <Input 
                         id="firstName" 
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
                         className="bg-black/20 border-white/20 text-white" 
-                        placeholder="Ihren Vornamen" 
+                        placeholder={t('navbarFirstNamePlaceholder')} 
                         required
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="lastName" className="text-white">Nachname</Label>
+                      <Label htmlFor="lastName" className="text-white">{t('navbarLastName')}</Label>
                       <Input 
                         id="lastName" 
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                         className="bg-black/20 border-white/20 text-white" 
-                        placeholder="Ihren Nachnamen" 
+                        placeholder={t('navbarLastNamePlaceholder')} 
                         required
                       />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="country" className="text-white">Land</Label>
+                    <Label htmlFor="country" className="text-white">{t('navbarCountry')}</Label>
                     <Select value={country} onValueChange={setCountry} required>
                       <SelectTrigger id="country" className="bg-black/20 border-white/20 text-white">
-                        <SelectValue placeholder="Wählen Sie Ihr Land aus" />
+                        <SelectValue placeholder={t('navbarCountryPlaceholder')} />
                       </SelectTrigger>
                       <SelectContent className="bg-[#161A1F] text-white border-white/10">
-                        <SelectItem value="germany">Deutschland</SelectItem>
-                        <SelectItem value="austria">Österreich</SelectItem>
-                        <SelectItem value="belgium">Belgien</SelectItem>
+                        <SelectItem value="germany">{t('navbarGermany')}</SelectItem>
+                        <SelectItem value="austria">{t('navbarAustria')}</SelectItem>
+                        <SelectItem value="belgium">{t('navbarBelgium')}</SelectItem>
                         {/* Add other countries */}
                       </SelectContent>
                     </Select>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-white">E-Mail</Label>
+                    <Label htmlFor="email" className="text-white">{t('navbarEmail')}</Label>
                     <Input 
                       id="email" 
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="bg-black/20 border-white/20 text-white" 
-                      placeholder="Ihre E-Mail Adresse" 
+                      placeholder={t('navbarEmailPlaceholder')} 
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-white">Telefonnummer</Label>
+                    <Label htmlFor="phone" className="text-white">{t('navbarPhone')}</Label>
                     <Input 
                       id="phone" 
                       type="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="bg-black/20 border-white/20 text-white" 
-                      placeholder="Ihre Telefonnummer" 
+                      placeholder={t('navbarPhonePlaceholder')} 
                       required
                     />
                   </div>
@@ -346,7 +349,8 @@ const Navbar = () => {
                         className="bg-black/20 border-white/20 text-deutscher-purple"
                       />
                       <Label htmlFor="privacyPolicy" className="text-white">
-                        Ich akzeptiere die <a href="/privacy-policy" className="text-deutscher-purple underline">Datenschutzrichtlinie</a>.
+                        {t('navbarAcceptPrivacy')}
+                        <a href="/privacy-policy" className="text-deutscher-purple underline">{t('navbarPrivacyPolicy')}</a>.
                       </Label>
                     </div>
                   </div>
@@ -354,7 +358,7 @@ const Navbar = () => {
                     type="submit" 
                     className="w-full bg-deutscher-purple hover:bg-deutscher-purple-light text-white mt-4"
                   >
-                    Konto erstellen 
+                    {t('navbarCreateAccountButton')}
                   </Button>
                 </form>
               </DialogContent>

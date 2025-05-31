@@ -1,4 +1,3 @@
-
 import React from 'react';
 import StoreCard from './StoreCard';
 import target from '@/assets/logos/target.svg';
@@ -13,68 +12,71 @@ import walmart from '@/assets/logos/walmart.svg';
 import urbanOutfitters from '@/assets/logos/urban-outfitters-1.svg';
 import ross from '@/assets/logos/ross.svg';
 import ulta from '@/assets/logos/ulta-beauty.svg';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const StoreGrid: React.FC = () => {
+  const { t } = useTranslation();
+
   const stores = [
     {
       logoSrc: target,
-      name: 'Target',
-      description: 'Home goods, apparel, electronics and more'
+      name: t('storeTarget'),
+      description: t('storeTargetDesc')
     },
     {
       logoSrc: nike,
-      name: 'Nike',
-      description: 'Athletic footwear and sportswear'
+      name: t('storeNike'),
+      description: t('storeNikeDesc')
     },
     {
       logoSrc: bestBuy,
-      name: 'Best Buy',
-      description: 'Consumer electronics and appliances'
+      name: t('storeBestBuy'),
+      description: t('storeBestBuyDesc')
     },
     {
       logoSrc: nordstrom,
-      name: 'Nordstrom',
-      description: 'Luxury department store'
+      name: t('storeNordstrom'),
+      description: t('storeNordstromDesc')
     },
     {
       logoSrc: bathBodyWorks,
-      name: 'Bath & Body Works',
-      description: 'Personal care and fragrances'
+      name: t('storeBathBodyWorks'),
+      description: t('storeBathBodyWorksDesc')
     },
     {
       logoSrc: macys,
-      name: 'Macy\'s',
-      description: 'Department store with clothing and home goods'
+      name: t('storeMacys'),
+      description: t('storeMacysDesc')
     },
     {
       logoSrc: costco,
-      name: 'Costco',
-      description: 'Wholesale warehouse club'
+      name: t('storeCostco'),
+      description: t('storeCostcoDesc')
     },
     {
       logoSrc: bananaRepublic,
-      name: 'Banana Republic',
-      description: 'Upscale clothing and accessories'
+      name: t('storeBananaRepublic'),
+      description: t('storeBananaRepublicDesc')
     },
     {
       logoSrc: walmart,
-      name: 'Walmart',
-      description: 'Everyday low prices on a wide range of products'
+      name: t('storeWalmart'),
+      description: t('storeWalmartDesc')
     },
     {
       logoSrc: urbanOutfitters,
-      name: 'Urban Outfitters',
-      description: 'Trendy clothing and lifestyle products'
+      name: t('storeUrbanOutfitters'),
+      description: t('storeUrbanOutfittersDesc')
     },
     {
       logoSrc: ross,
-      name: 'Ross',
-      description: 'Discount department store with brand names'
+      name: t('storeRoss'),
+      description: t('storeRossDesc')
     },
     {
       logoSrc: ulta,
-      name: 'Ulta Beauty',
-      description: 'Beauty products and salon services'
+      name: t('storeUltaBeauty'),
+      description: t('storeUltaBeautyDesc')
     }
   ];
 
@@ -82,7 +84,7 @@ const StoreGrid: React.FC = () => {
     <section className="py-16 px-4">
       <div className="container mx-auto">
         <h2 className="text-2xl font-bold mb-8 text-center text-gradient">
-          Popular U.S. Stores
+          {t('storeGridHeadline')}
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react'
 import Navbar from '@/components/Navbar';
 import StoreFooter from '@/components/stores/StoreFooter';
@@ -6,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Link } from 'react-router-dom';
 import { ArrowLeft, MapPin, Briefcase, Users, Award } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const jobOpenings = [
   {
@@ -51,9 +51,10 @@ const jobOpenings = [
 ];
 
 const Careers: React.FC = () => {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+  const { t } = useTranslation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const isMobile = useIsMobile();
   
   return (
@@ -64,24 +65,21 @@ const Careers: React.FC = () => {
         <div className="space-y-6">
           <Link to="/" className="flex items-center text-deutscher-purple-light hover:text-deutscher-purple-light/80 transition-colors">
             <ArrowLeft size={16} />
-            <span>Back to Home</span>
+            <span>{t('careersBackToHome')}</span>
           </Link>
           
           <div className="flex justify-between items-center flex-wrap gap-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-white">Careers at PakSend®</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-white">{t('careersHeadline')}</h2>
           </div>
           
           <Card className="bg-[#0D0F12] border border-white/10 text-white">
             <CardHeader>
-              <CardTitle>Join Our Team</CardTitle>
-              <CardDescription className="text-gray-400">Help us reshape cross-border e-commerce</CardDescription>
+              <CardTitle>{t('careersJoinTeamTitle')}</CardTitle>
+              <CardDescription className="text-gray-400">{t('careersJoinTeamDesc')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-gray-300 text-sm sm:text-base">
-                At PakSend®, we're building the future of international shopping. Our mission is to make 
-                cross-border e-commerce as seamless as local shopping, and we need passionate people to 
-                help us get there. We offer a collaborative, innovative work environment where your ideas 
-                matter and your growth is a priority.
+                {t('careersJoinTeamP')}
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
@@ -89,9 +87,9 @@ const Careers: React.FC = () => {
                   <div className="flex gap-3 items-start">
                     <Users className="h-5 w-5 text-deutscher-purple-light flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-medium text-deutscher-purple-light">Diverse & Inclusive</h3>
+                      <h3 className="font-medium text-deutscher-purple-light">{t('careersDiversityTitle')}</h3>
                       <p className="text-xs sm:text-sm text-gray-300 mt-1">
-                        We celebrate differences and create an environment where everyone belongs.
+                        {t('careersDiversityDesc')}
                       </p>
                     </div>
                   </div>
@@ -101,9 +99,9 @@ const Careers: React.FC = () => {
                   <div className="flex gap-3 items-start">
                     <Award className="h-5 w-5 text-deutscher-purple-light flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-medium text-deutscher-purple-light">Growth Focused</h3>
+                      <h3 className="font-medium text-deutscher-purple-light">{t('careersGrowthTitle')}</h3>
                       <p className="text-xs sm:text-sm text-gray-300 mt-1">
-                        We invest in your professional development with learning opportunities.
+                        {t('careersGrowthDesc')}
                       </p>
                     </div>
                   </div>
@@ -113,9 +111,9 @@ const Careers: React.FC = () => {
                   <div className="flex gap-3 items-start">
                     <Briefcase className="h-5 w-5 text-deutscher-purple-light flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="font-medium text-deutscher-purple-light">Work-Life Balance</h3>
+                      <h3 className="font-medium text-deutscher-purple-light">{t('careersWorkLifeTitle')}</h3>
                       <p className="text-xs sm:text-sm text-gray-300 mt-1">
-                        We offer flexible schedules and remote work options when possible.
+                        {t('careersWorkLifeDesc')}
                       </p>
                     </div>
                   </div>
@@ -126,25 +124,25 @@ const Careers: React.FC = () => {
           
           <Card className="bg-[#0D0F12] border border-white/10 text-white">
             <CardHeader>
-              <CardTitle>Open Positions</CardTitle>
-              <CardDescription className="text-gray-400">Find your next career opportunity</CardDescription>
+              <CardTitle>{t('careersOpenPositionsTitle')}</CardTitle>
+              <CardDescription className="text-gray-400">{t('careersOpenPositionsDesc')}</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 <button className="px-2 sm:px-3 py-1.5 bg-deutscher-purple text-white rounded-md text-xs sm:text-sm">
-                  All Departments
+                  {t('careersAllDepartments')}
                 </button>
                 <button className="px-2 sm:px-3 py-1.5 bg-white/5 hover:bg-white/10 text-white rounded-md text-xs sm:text-sm transition-colors">
-                  Engineering
+                  {t('careersEngineering')}
                 </button>
                 <button className="px-2 sm:px-3 py-1.5 bg-white/5 hover:bg-white/10 text-white rounded-md text-xs sm:text-sm transition-colors">
-                  Operations
+                  {t('careersOperations')}
                 </button>
                 <button className="px-2 sm:px-3 py-1.5 bg-white/5 hover:bg-white/10 text-white rounded-md text-xs sm:text-sm transition-colors">
-                  Marketing
+                  {t('careersMarketing')}
                 </button>
                 <button className="px-2 sm:px-3 py-1.5 bg-white/5 hover:bg-white/10 text-white rounded-md text-xs sm:text-sm transition-colors">
-                  Support
+                  {t('careersSupport')}
                 </button>
               </div>
               
@@ -170,7 +168,7 @@ const Careers: React.FC = () => {
                           to={`/careers/${job.id}`}
                           className="bg-deutscher-purple hover:bg-deutscher-purple-light px-3 sm:px-4 py-2 rounded-md text-white text-xs sm:text-sm transition-colors w-full sm:w-auto text-center"
                         >
-                          Apply Now
+                          {t('careersApplyNow')}
                         </Link>
                       </div>
                     </CardHeader>
@@ -188,33 +186,33 @@ const Careers: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="bg-[#0D0F12] border border-white/10 text-white">
               <CardHeader>
-                <CardTitle>Benefits & Perks</CardTitle>
+                <CardTitle>{t('careersBenefitsTitle')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 text-gray-300 text-xs sm:text-sm">
                   <li className="flex items-baseline gap-3">
                     <span className="inline-block w-2 h-2 bg-deutscher-purple-light rounded-full"></span>
-                    <span>Competitive salary and equity options</span>
+                    <span>{t('careersBenefitSalary')}</span>
                   </li>
                   <li className="flex items-baseline gap-3">
                     <span className="inline-block w-2 h-2 bg-deutscher-purple-light rounded-full"></span>
-                    <span>Comprehensive health, dental, and vision insurance</span>
+                    <span>{t('careersBenefitInsurance')}</span>
                   </li>
                   <li className="flex items-baseline gap-3">
                     <span className="inline-block w-2 h-2 bg-deutscher-purple-light rounded-full"></span>
-                    <span>Generous paid time off and flexible working hours</span>
+                    <span>{t('careersBenefitPTO')}</span>
                   </li>
                   <li className="flex items-baseline gap-3">
                     <span className="inline-block w-2 h-2 bg-deutscher-purple-light rounded-full"></span>
-                    <span>Remote work options and modern office spaces</span>
+                    <span>{t('careersBenefitRemote')}</span>
                   </li>
                   <li className="flex items-baseline gap-3">
                     <span className="inline-block w-2 h-2 bg-deutscher-purple-light rounded-full"></span>
-                    <span>Professional development budget</span>
+                    <span>{t('careersBenefitDevelopment')}</span>
                   </li>
                   <li className="flex items-baseline gap-3">
                     <span className="inline-block w-2 h-2 bg-deutscher-purple-light rounded-full"></span>
-                    <span>Employee shipping discount program</span>
+                    <span>{t('careersBenefitShipping')}</span>
                   </li>
                 </ul>
               </CardContent>
@@ -222,47 +220,47 @@ const Careers: React.FC = () => {
             
             <Card className="bg-[#0D0F12] border border-white/10 text-white">
               <CardHeader>
-                <CardTitle>Our Hiring Process</CardTitle>
+                <CardTitle>{t('careersHiringProcessTitle')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-deutscher-purple flex items-center justify-center text-white text-xs sm:text-sm">1</div>
                     <div>
-                      <h3 className="font-medium text-white text-sm sm:text-base">Application Review</h3>
-                      <p className="text-xs sm:text-sm text-gray-300">We review your resume and cover letter</p>
+                      <h3 className="font-medium text-white text-sm sm:text-base">{t('careersHiringStep1Title')}</h3>
+                      <p className="text-xs sm:text-sm text-gray-300">{t('careersHiringStep1Desc')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-deutscher-purple flex items-center justify-center text-white text-xs sm:text-sm">2</div>
                     <div>
-                      <h3 className="font-medium text-white text-sm sm:text-base">Initial Interview</h3>
-                      <p className="text-xs sm:text-sm text-gray-300">Video call with the hiring manager</p>
+                      <h3 className="font-medium text-white text-sm sm:text-base">{t('careersHiringStep2Title')}</h3>
+                      <p className="text-xs sm:text-sm text-gray-300">{t('careersHiringStep2Desc')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-deutscher-purple flex items-center justify-center text-white text-xs sm:text-sm">3</div>
                     <div>
-                      <h3 className="font-medium text-white text-sm sm:text-base">Skills Assessment</h3>
-                      <p className="text-xs sm:text-sm text-gray-300">Role-specific task or technical interview</p>
+                      <h3 className="font-medium text-white text-sm sm:text-base">{t('careersHiringStep3Title')}</h3>
+                      <p className="text-xs sm:text-sm text-gray-300">{t('careersHiringStep3Desc')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-deutscher-purple flex items-center justify-center text-white text-xs sm:text-sm">4</div>
                     <div>
-                      <h3 className="font-medium text-white text-sm sm:text-base">Team Interview</h3>
-                      <p className="text-xs sm:text-sm text-gray-300">Meet your potential colleagues</p>
+                      <h3 className="font-medium text-white text-sm sm:text-base">{t('careersHiringStep4Title')}</h3>
+                      <p className="text-xs sm:text-sm text-gray-300">{t('careersHiringStep4Desc')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-deutscher-purple flex items-center justify-center text-white text-xs sm:text-sm">5</div>
                     <div>
-                      <h3 className="font-medium text-white text-sm sm:text-base">Offer & Onboarding</h3>
-                      <p className="text-xs sm:text-sm text-gray-300">Welcome to the team!</p>
+                      <h3 className="font-medium text-white text-sm sm:text-base">{t('careersHiringStep5Title')}</h3>
+                      <p className="text-xs sm:text-sm text-gray-300">{t('careersHiringStep5Desc')}</p>
                     </div>
                   </div>
                 </div>
@@ -272,26 +270,24 @@ const Careers: React.FC = () => {
           
           <Card className="bg-[#0D0F12] border border-white/10 text-white">
             <CardHeader>
-              <CardTitle>Can't Find the Right Role?</CardTitle>
+              <CardTitle>{t('careersNoRoleTitle')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-gray-300 text-xs sm:text-sm">
-                We're always on the lookout for talented individuals who are passionate about our mission. 
-                If you don't see a role that fits your skills but think you'd be a great addition to our team, 
-                send us your resume and tell us why you want to join PakSend®.
+                {t('careersNoRoleDesc')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <a 
                   href="mailto:careers@paksend.com" 
                   className="inline-block px-4 sm:px-6 py-2 bg-deutscher-purple hover:bg-deutscher-purple-light transition-colors rounded-md text-white text-center text-sm"
                 >
-                  Contact Our Recruiting Team
+                  {t('careersContactRecruiting')}
                 </a>
                 <Link 
                   to="/about" 
                   className="inline-block px-4 sm:px-6 py-2 bg-white/5 hover:bg-white/10 transition-colors rounded-md text-white text-center text-sm"
                 >
-                  Learn More About Us
+                  {t('careersLearnMore')}
                 </Link>
               </div>
             </CardContent>

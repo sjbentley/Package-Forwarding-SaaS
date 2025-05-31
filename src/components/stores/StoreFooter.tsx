@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Plane } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const StoreFooter: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-[#0D0F12] py-10 md:py-12">
       <div className="container mx-auto px-4">
@@ -13,19 +16,19 @@ const StoreFooter: React.FC = () => {
               <span className="font-medium">PakSend</span>
             </div>
             <p className="text-sm md:text-base text-gray-400">
-              Logistik für internationale Einkäufe.
+              {t('footerSlogan')}
             </p>
           </div>
 
           <div>
-            <h3 className="text-base md:text-lg font-bold mb-3 md:mb-4 text-white">Produkt</h3>
+            <h3 className="text-base md:text-lg font-bold mb-3 md:mb-4 text-white">{t('footerProduct')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/#features"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Funktionen
+                  {t('footerFeatures')}
                 </Link>
               </li>
               <li>
@@ -33,7 +36,7 @@ const StoreFooter: React.FC = () => {
                   to="/#pricing-section"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Preise
+                  {t('footerPricing')}
                 </Link>
               </li>
               <li>
@@ -41,7 +44,7 @@ const StoreFooter: React.FC = () => {
                   to="/documentation"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Dokumentation
+                  {t('footerDocumentation')}
                 </Link>
               </li>
               <li>
@@ -49,21 +52,21 @@ const StoreFooter: React.FC = () => {
                   to="/api"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  API
+                  {t('footerApi')}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-base md:text-lg font-bold mb-3 md:mb-4 text-white">Unternehmen</h3>
+            <h3 className="text-base md:text-lg font-bold mb-3 md:mb-4 text-white">{t('footerCompany')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/about"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Über uns
+                  {t('footerAbout')}
                 </Link>
               </li>
               <li>
@@ -71,7 +74,7 @@ const StoreFooter: React.FC = () => {
                   to="/careers"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Karriere
+                  {t('footerCareers')}
                 </Link>
               </li>
               <li>
@@ -79,7 +82,7 @@ const StoreFooter: React.FC = () => {
                   to="/contact"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Kontakt
+                  {t('footerContact')}
                 </Link>
               </li>
               <li>
@@ -87,21 +90,21 @@ const StoreFooter: React.FC = () => {
                   to="/faq"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  FAQ
+                  {t('footerFaq')}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-base md:text-lg font-bold mb-3 md:mb-4 text-white">Rechtliches</h3>
+            <h3 className="text-base md:text-lg font-bold mb-3 md:mb-4 text-white">{t('footerLegal')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   to="/privacy-policy"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Datenschutzrichtlinie
+                  {t('footerPrivacy')}
                 </Link>
               </li>
               <li>
@@ -109,7 +112,7 @@ const StoreFooter: React.FC = () => {
                   to="/terms-of-service"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Nutzungsbedingungen
+                  {t('footerTerms')}
                 </Link>
               </li>
               <li>
@@ -117,7 +120,7 @@ const StoreFooter: React.FC = () => {
                   to="/cookie-policy"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Cookie Richtlinie
+                  {t('footerCookies')}
                 </Link>
               </li>
               <li>
@@ -125,7 +128,7 @@ const StoreFooter: React.FC = () => {
                   to="/impressum"
                   className="text-sm md:text-base text-gray-400 hover:text-white transition-colors"
                 >
-                  Impressum
+                  {t('footerImprint')}
                 </Link>
               </li>
             </ul>
@@ -134,7 +137,7 @@ const StoreFooter: React.FC = () => {
 
         <div className="border-t border-gray-800 mt-10 md:mt-12 pt-6 md:pt-8 text-center text-gray-400">
           <p className="text-sm md:text-base">
-            © {new Date().getFullYear()} PakSend. All rights reserved.
+            {t('copyright').replace('{year}', new Date().getFullYear().toString())}
           </p>
         </div>
       </div>

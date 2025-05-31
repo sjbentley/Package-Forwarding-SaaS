@@ -1,36 +1,37 @@
-
 import React, { useState } from 'react';
 import { Search, ShoppingBag, Package, Plane, Home } from 'lucide-react';
 import ProcessStep from './ProcessStep';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const ProcessStepsSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
-  
+  const { t } = useTranslation();
+
   const processSteps = [
     {
       icon: <Search className="h-5 w-5" />,
-      title: "Entdecken",
-      description: "Exklusive Produkte, die Sie in deutschen Läden nicht finden."
+      title: t('processStepDiscoverTitle'),
+      description: t('processStepDiscoverDesc')
     },
     {
       icon: <ShoppingBag className="h-5 w-5" />,
-      title: "Einkaufen",
-      description: "Mit Ihrer US Adresse bestellen."
+      title: t('processStepShopTitle'),
+      description: t('processStepShopDesc')
     },
     {
       icon: <Package className="h-5 w-5" />,
-      title: "Empfangen",
-      description: "Pakete kommen bei uns an und werden versandfertig gemacht."
+      title: t('processStepReceiveTitle'),
+      description: t('processStepReceiveDesc')
     },
     {
       icon: <Plane className="h-5 w-5" />,
-      title: "Versenden",
-      description: "Schneller, zollabgewickelter Versand nach Deutschland."
+      title: t('processStepShipTitle'),
+      description: t('processStepShipDesc')
     },
     {
       icon: <Home className="h-5 w-5" />,
-      title: "Lieferung",
-      description: "Direkt an Ihre Haustür."
+      title: t('processStepDeliverTitle'),
+      description: t('processStepDeliverDesc')
     }
   ];
 
@@ -62,24 +63,24 @@ const ProcessStepsSection: React.FC = () => {
             <div className="mx-auto bg-deutscher-purple/20 rounded-full w-12 h-12 flex items-center justify-center mb-3">
               <div className="h-6 w-6 text-deutscher-purple-light">✓</div>
             </div>
-            <h3 className="font-bold text-lg mb-2">Schnelle Bearbeitung</h3>
-            <p className="text-gray-300 text-sm">24-48 Std. Bearbeitungszeit</p>
+            <h3 className="font-bold text-lg mb-2">{t('processCardFastProcessingTitle')}</h3>
+            <p className="text-gray-300 text-sm">{t('processCardFastProcessingDesc')}</p>
           </div>
           
           <div className="glass-morphism p-6 rounded-xl text-center">
             <div className="mx-auto bg-deutscher-purple/20 rounded-full w-12 h-12 flex items-center justify-center mb-3">
               <div className="h-6 w-6 text-deutscher-purple-light">✓</div>
             </div>
-            <h3 className="font-bold text-lg mb-2">1000+ Geschäfte</h3>
-            <p className="text-gray-300 text-sm">Einkaufen bei großen US Händlern</p>
+            <h3 className="font-bold text-lg mb-2">{t('processCard1000StoresTitle')}</h3>
+            <p className="text-gray-300 text-sm">{t('processCard1000StoresDesc')}</p>
           </div>
           
           <div className="glass-morphism p-6 rounded-xl text-center">
             <div className="mx-auto bg-deutscher-purple/20 rounded-full w-12 h-12 flex items-center justify-center mb-3">
               <div className="h-6 w-6 text-deutscher-purple-light">✓</div>
             </div>
-            <h3 className="font-bold text-lg mb-2">Sparen Sie bis zu 80%</h3>
-            <p className="text-gray-300 text-sm">Mit Paketkonsolidierung</p>
+            <h3 className="font-bold text-lg mb-2">{t('processCardSaveUpTo80Title')}</h3>
+            <p className="text-gray-300 text-sm">{t('processCardSaveUpTo80Desc')}</p>
           </div>
         </div>
       </div>

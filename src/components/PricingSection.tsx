@@ -1,79 +1,80 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X } from 'lucide-react';
 import { Button } from './ui/button';
-
-const tiers = [
-  {
-    name: "Basis",
-    price: "€9.99",
-    description: "Für gelegentliche Auslandskäufe",
-    features: [
-      "Virtuelle US Adresse",
-      "7 Tage Lagerung",
-      "Einfache Zusammenführung",
-      "E-Mail Support",
-      "Standard Versandoptionen",
-    ],
-    notIncluded: [
-      "KI Paketoptimierung",
-      "Premium Versandoptionen",
-      "0% Umsatzsteuer",
-    ],
-    isPopular: false,
-    ctaText: "Loslegen",
-  },
-  {
-    name: "Premium",
-    price: "€19.99",
-    description: "Für regelmäßige Vielbesteller",
-    features: [
-      "Virtual US address",
-      "30 Tage Lagerung",
-      "Erweiterte Zusammenführung",
-      "KI Paketoptimierung",
-      "Premium Versandoptionen",
-      "Priorisierter E-Mail Support",
-      
-    ],
-    notIncluded: [
-      "Persönlicher Einkaufsservice", 
-      "0% Umsatzsteuer",
-    ],
-    isPopular: true,
-    ctaText: "Premium versuchen",
-  },
-  {
-    name: "Enterprise",
-    price: "€29.99",
-    description: "Für Profis und Unternehmen",
-    features: [
-      "Virtual US address",
-      "90 Tage Lagerung",
-      "Experten Zusammenführung",
-      "KI Paketoptimierung",
-      "Alle Versandoptionen",
-      "Priorisierte Support Hotline",
-      "Persönlicher Einkaufsservice",
-      "0% Umsatzsteuer",
-    ],
-    notIncluded: [],
-    isPopular: false,
-    ctaText: "Vertrieb kontaktieren",
-  }
-];
+import { useTranslation } from '@/hooks/useTranslation';
 
 const PricingSection = () => {
+  const { t } = useTranslation();
+
+  const tiers = [
+    {
+      name: t('planBasic'),
+      price: t('price9_99'),
+      description: t('planBasicDesc'),
+      features: [
+        t('featureVirtuelleUSAdresse'),
+        t('feature7DaysStorage'),
+        t('featureSimpleConsolidation'),
+        t('featureEmailSupport'),
+        t('featureStandardShipping'),
+      ],
+      notIncluded: [
+        t('featureAIPackageOptimization'),
+        t('featurePremiumShipping'),
+        t('featureNoVAT'),
+      ],
+      isPopular: false,
+      ctaText: t('ctaStart'),
+    },
+    {
+      name: t('planPremium'),
+      price: t('price19_99'),
+      description: t('planPremiumDesc'),
+      features: [
+        t('featureVirtualUSAddress'),
+        t('feature30DaysStorage'),
+        t('featureAdvancedConsolidation'),
+        t('featureAIPackageOptimization'),
+        t('featurePremiumShipping'),
+        t('featurePriorityEmailSupport'),
+      ],
+      notIncluded: [
+        t('featurePersonalShopper'),
+        t('featureNoVAT'),
+      ],
+      isPopular: true,
+      ctaText: t('ctaTryPremium'),
+    },
+    {
+      name: t('planEnterprise'),
+      price: t('price29_99'),
+      description: t('planEnterpriseDesc'),
+      features: [
+        t('featureVirtualUSAddress'),
+        t('feature90DaysStorage'),
+        t('featureExpertConsolidation'),
+        t('featureAIPackageOptimization'),
+        t('featureAllShipping'),
+        t('featurePriorityHotline'),
+        t('featurePersonalShopper'),
+        t('featureNoVAT'),
+      ],
+      notIncluded: [],
+      isPopular: false,
+      ctaText: t('ctaContactSales'),
+    }
+  ];
+
   return (
     <section className="py-20 relative" id="pricing-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
-            Transparente Preise
+            {t('pricingHeadline')}
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Wählen Sie den Plan, der zu Ihren Versandbedürfnissen passt.
+            {t('pricingSubline')}
           </p>
         </div>
 
@@ -83,7 +84,7 @@ const PricingSection = () => {
               {tier.isPopular && (
                 <div className="absolute top-0 right-0">
                   <div className="bg-deutscher-purple text-white text-xs font-bold px-7 py-1 transform rotate-45 translate-x-7 translate-y-3">
-                  BELIEBT
+                    {t('labelPopular')}
                   </div>
                 </div>
               )}
@@ -91,7 +92,7 @@ const PricingSection = () => {
                 <CardTitle className="text-2xl font-bold text-white">{tier.name}</CardTitle>
                 <div className="flex items-baseline mt-2">
                   <span className="text-4xl font-extrabold text-white">{tier.price}</span>
-                  <span className="ml-1 text-sm text-gray-300">/monat</span>
+                  <span className="ml-1 text-sm text-gray-300">{t('perMonth')}</span>
                 </div>
                 <CardDescription className="text-gray-300 mt-2">{tier.description}</CardDescription>
               </CardHeader>

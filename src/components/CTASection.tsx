@@ -1,13 +1,14 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from '@/hooks/useTranslation';
 
 const CTASection = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,8 +19,8 @@ const CTASection = () => {
       setIsSubmitting(false);
       setEmail('');
       toast({
-        title: "Success!",
-        description: "Thanks for subscribing to our newsletter!",
+        title: t('ctaToastTitle'),
+        description: t('ctaToastDesc'),
         duration: 5000,
       });
     }, 1000);
@@ -33,16 +34,16 @@ const CTASection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
-            Entdecken Sie eine smarte Art, über Grenzen hinweg einzukaufen!
+            {t('ctaHeadline')}
           </h2>
           <p className="text-lg text-gray-300 mb-8">
-            Treten Sie noch heute bei PakSend und erhalten Sie Ihre virtuelle Adresse.
+            {t('ctaSubline')}
           </p>
           
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center">
             <input
               type="email"
-              placeholder="Enter your email"
+              placeholder={t('ctaEmailPlaceholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -53,7 +54,7 @@ const CTASection = () => {
               className="bg-deutscher-purple hover:bg-deutscher-purple-light text-white px-8 py-6 text-lg"
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+              {isSubmitting ? t('ctaButtonLoading') : t('ctaButton')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </form>
