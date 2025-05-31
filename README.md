@@ -16,7 +16,11 @@
 
 **PakSend** isn't just a shipping solution; it's the **next-generation SaaS platform** engineered to dismantle the barriers of cross-border e-commerce. We empower consumers in **Germany, the Dominican Republic, and Panama** to effortlessly access the vast U.S. retail market, transcending geographical limitations and conventional logistics headaches. By fusing **unyielding transparency, robust logistics management, and pioneering AI intelligence**, PakSend delivers a shipping experience that is not merely efficient, but truly transformative.
 
-![PakSend® Dashboard](src/assets/dashboard-overview.png)
+![PakSend®](src/assets/pak1.png)
+![PakSend®](src/assets/pak2.png)
+![PakSend®](src/assets/pak3.png)
+![PakSend®](src/assets/pak4.png)
+![PakSend®](src/assets/pak5.png)
 
 ---
 
