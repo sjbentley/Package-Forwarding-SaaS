@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -16,6 +15,7 @@ import { RETAILER_COLORS } from '@/config/chartConfig';
 import { retailerChartConfig } from '@/config/chartConfig';
 import { retailerData } from '@/data/analyticsData';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface RetailerDistributionProps {
   selectedRetailer: string | null;
@@ -38,12 +38,13 @@ const RetailerDistribution: React.FC<RetailerDistributionProps> = ({
   retailerPayload
 }) => {
   const isMobile = useIsMobile();
-  
+  const { t } = useTranslation();
+
   return (
     <Card className="bg-[#0D0F12] border-white/10 text-white flex flex-col h-full">
       <CardHeader className="pb-2">
-        <CardTitle className="text-center text-sm sm:text-base md:text-lg">Retailer Distribution</CardTitle>
-        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">Package sources by retailer</CardDescription>
+        <CardTitle className="text-center text-sm sm:text-base md:text-lg">{t('retailerDistribution')}</CardTitle>
+        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">{t('packageSourcesByRetailer')}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col items-center justify-center p-0 sm:p-2">
         <div className="w-full h-[220px] sm:h-[250px] md:h-[300px] flex items-center justify-center">

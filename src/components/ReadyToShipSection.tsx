@@ -293,7 +293,10 @@ const handleSingleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
   const renderOrderSummary = () => {
     return (
-      <div className="mt-4">
+      <div 
+        className="mt-4 max-h-[60vh] sm:max-h-[70vh] overflow-y-auto pr-2"
+        style={{ scrollbarGutter: 'stable' }}
+        >
         <div className="flex items-center gap-2 mb-4">
           <div className="h-8 w-8 rounded-full bg-green-500 border border-green-500 flex items-center justify-center text-white">
             <Check className="h-5 w-5" />

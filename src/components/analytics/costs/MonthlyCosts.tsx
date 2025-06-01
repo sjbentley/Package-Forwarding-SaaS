@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -26,8 +25,8 @@ const MonthlyCosts: React.FC = () => {
   return (
     <Card className="bg-[#0D0F12] border-white/10 text-white h-full">
       <CardHeader className="space-y-1 sm:space-y-2">
-        <CardTitle className="text-center text-sm sm:text-base">Monthly Shipping Costs</CardTitle>
-        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">Expenses over time (in €)</CardDescription>
+        <CardTitle className="text-center text-sm sm:text-base">{t('monthlyShippingCosts')}</CardTitle>
+        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">{t('expensesOverTime')}</CardDescription>
       </CardHeader>
       <CardContent className="h-[250px] sm:h-[300px] md:h-[350px] p-1 sm:p-6 pr-2 sm:pr-4">
         <ChartContainer config={costChartConfig} className="h-full w-full">

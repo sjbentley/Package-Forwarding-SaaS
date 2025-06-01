@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -18,31 +17,34 @@ import {
   Cell,
 } from "recharts";
 import { boxPlotData } from '@/data/analyticsData';
-
-const weightLegendPayload = [
-  { value: "Weight Range", color: "#9b87f5", payload: { fill: "#9b87f5", strokeDasharray: "none" } },
-  { value: "Median", color: "#ffffff", payload: { fill: "#ffffff", strokeDasharray: "none" } },
-];
+import { useTranslation } from '@/hooks/useTranslation';
 
 const WeightDistribution: React.FC = () => {
+  const { t } = useTranslation();
+
+  const weightLegendPayload = [
+    { value: t('weightRange'), color: "#9b87f5", payload: { fill: "#9b87f5", strokeDasharray: "none" } },
+    { value: t('median'), color: "#ffffff", payload: { fill: "#ffffff", strokeDasharray: "none" } },
+  ];
+
   return (
     <Card className="bg-[#0D0F12] border-white/10 text-white h-full">
       <CardHeader className="space-y-1 sm:space-y-2">
-        <CardTitle className="text-center text-sm sm:text-base">Package Weight Distribution</CardTitle>
-        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">Statistical distribution of package weights</CardDescription>
+        <CardTitle className="text-center text-sm sm:text-base">{t('packageWeightDistribution')}</CardTitle>
+        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">{t('statisticalDistributionOfPackageWeights')}</CardDescription>
       </CardHeader>
       <CardContent className="h-[250px] sm:h-[300px] md:h-[350px] p-1 sm:p-6 pr-2 sm:pr-4">
         <ChartContainer 
           config={{
             boxplot: {
-              label: "Weight",
+              label: t('weight'),
               theme: {
                 light: "#9b87f5",
                 dark: "#9b87f5",
               },
             },
             median: {
-              label: "Median",
+              label: t('median'),
               theme: {
                 light: "#ffffff",
                 dark: "#ffffff",
@@ -86,12 +88,12 @@ const WeightDistribution: React.FC = () => {
                   return (
                     <div className="bg-[#0D0F12] border border-white/10 p-2 rounded shadow-lg">
                       <p className="text-white font-medium">{data.category}</p>
-                      <p className="text-gray-300">Min: {data.min} kg</p>
-                      <p className="text-gray-300">Q1: {data.q1} kg</p>
-                      <p className="text-white font-medium">Median: {data.median} kg</p>
-                      <p className="text-gray-300">Q3: {data.q3} kg</p>
-                      <p className="text-gray-300">Max: {data.max} kg</p>
-                      <p className="text-white mt-1">Count: {data.count} packages</p>
+                      <p className="text-gray-300">{t('min')}: {data.min} kg</p>
+                      <p className="text-gray-300">{t('q1')}: {data.q1} kg</p>
+                      <p className="text-white font-medium">{t('median')}: {data.median} kg</p>
+                      <p className="text-gray-300">{t('q3')}: {data.q3} kg</p>
+                      <p className="text-gray-300">{t('max')}: {data.max} kg</p>
+                      <p className="text-white mt-1">{t('count')}: {data.count} {t('packagenumber')}</p>
                     </div>
                   );
                 }}
@@ -103,7 +105,7 @@ const WeightDistribution: React.FC = () => {
                     dataKey="q3" 
                     fill="#9b87f5"
                     radius={[4, 4, 0, 0]} 
-                    name="Q3"
+                    name={t('q3')}
                     stackId={`stack-${index}`}
                     barSize={60}
                   >
@@ -114,7 +116,7 @@ const WeightDistribution: React.FC = () => {
                     fill="#7E69AB"
                     radius={[0, 0, 0, 0]}
                     stackId={`stack-${index}`}
-                    name="Median to Q1"
+                    name={t('medianToQ1')}
                     barSize={60}
                   >
                     <Cell fill="#7E69AB" />

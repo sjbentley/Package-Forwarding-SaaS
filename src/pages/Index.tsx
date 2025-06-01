@@ -78,6 +78,28 @@ const handleSubmit = (e: React.FormEvent) => {
     duration: 5000,
   });
 
+  const subject = encodeURIComponent("Anfrage zur virtuellen Adresse");
+  const body = encodeURIComponent(
+    `Hallo PakSend-Team,
+
+    ich möchte mich für eine virtuelle Adresse registrieren und bitte um weitere Informationen zur Nutzung Ihres Services.
+
+    Hier sind meine Daten:
+
+    Vorname: ${firstName}
+    Nachname: ${lastName}
+    E-Mail: ${email}
+    Telefon: ${phone}
+    Land: ${country}
+
+    Ich freue mich auf Ihre Rückmeldung.
+
+    Viele Grüße,
+    ${firstName} ${lastName}`
+    );
+
+  window.location.href = `mailto:paksend.de@gmail.com?subject=${subject}&body=${body}`;
+
   setIsOpen(false);
   setFirstName('');
   setLastName('');
@@ -226,8 +248,8 @@ const handleSubmit = (e: React.FormEvent) => {
                       {t('submit')} 
                     </Button>
                     <div className="border-t border-gray-800 mt-10 md:mt-12 pt-6 md:pt-8 text-center text-gray-400">
-            <p className="text-sm md:text-base">{t('copyright').replace('{year}', new Date().getFullYear().toString())}</p>
-          </div>
+                <p className="text-sm md:text-base">{t('copyright').replace('{year}', new Date().getFullYear().toString())}</p>
+            </div>
                   </form>
                 </DialogContent>
               </Dialog>

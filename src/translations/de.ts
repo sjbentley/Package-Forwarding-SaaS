@@ -387,6 +387,34 @@ export default {
   insurance: "Versicherung",
   consolidationSavings: "Einsparungen durch Konsolidierung",
   consolidationDescription: "Eingesparte Kosten durch Paketkonsolidierung",
+
+  packageTypeAnalysis: "Pakettypen-Analyse",
+  distributionByCategory: "Verteilung nach Kategorie",
+  packageTypes: "Pakettypen",
+
+  retailerDistribution: "Händlerverteilung",
+  packageSourcesByRetailer: "Paketquellen nach Händler",
+
+  shippingVolumeTrends: "Versandvolumen-Trends & Prognose",
+  historicalDataWithForecast: "Historische Daten mit zukünftigen Prognosen",
+  historicalData: "Historische Daten",
+  forecast: "Prognose",
+
+  packageWeightDistribution: "Paketgewichtsverteilung",
+  statisticalDistributionOfPackageWeights: "Statistische Verteilung der Paketgewichte",
+  weightRange: "Gewichtsbereich",
+  median: "Median",
+  min: "Min",
+  q1: "Q1",
+  q3: "Q3",
+  max: "Max",
+  medianToQ1: "Median bis Q1",
+  count: "Anzahl",
+  packagenumber: "Pakete",
+  weight: "Gewicht",
+
+  monthlyShippingCosts: "Monatliche Versandkosten",
+  expensesOverTime: "Ausgaben im Zeitverlauf (in €)",
   
   // User profile
   myAccount: "Mein Konto",
@@ -494,7 +522,6 @@ export default {
   pendingShipments: "Ausstehende Sendungen",
   completedShipments: "Abgeschlossene Sendungen",
   packageDetails: "Paketdetails",
-  weight: "Gewicht",
   dimensions: "Abmessungen",
   estimatedDelivery: "Voraussichtliche Lieferung",
   shippingMethod: "Versandmethode",

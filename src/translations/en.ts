@@ -124,7 +124,7 @@ export default {
 
   overview: "Overview",
   headline: "You Shop. We Ship.",
-  subline: "Unlock full access to American stores – we deliver right to your doorstep.",
+  subline: "Unlock full access to American stores – delivered right to your doorstep.",
   startNow: "Start Now",
   learnMore: "Learn More",
   createAccount: "Create Your PakSend® Account",
@@ -274,8 +274,8 @@ export default {
   shippingCalculatorDisclaimer: "Estimate. Costs may vary.",
   shippingCalculatorPrompt: 'Enter package details and click "Calculate Shipping".',
 
-  ctaHeadline: "Shop smarter across borders!",
-  ctaSubline: "Join PakSend today and get your virtual address.",
+  ctaHeadline: "Discover a smart way to shop across borders!",
+  ctaSubline: "Join PakSend and get your virtual address.",
   ctaEmailPlaceholder: "Enter your email",
   ctaButton: "Subscribe",
   ctaButtonLoading: "Subscribing...",
@@ -379,6 +379,35 @@ export default {
   insurance: "Insurance",
   consolidationSavings: "Consolidation Savings",
   consolidationDescription: "Money saved through package consolidation",
+
+  packageTypeAnalysis: "Package Type Analysis",
+  distributionByCategory: "Distribution by category",
+  packageTypes: "Package Types",
+
+  retailerDistribution: "Retailer Distribution",
+  packageSourcesByRetailer: "Package sources by retailer",
+
+  shippingVolumeTrends: "Shipping Volume Trends & Forecast",
+  historicalDataWithForecast: "Historical data with future predictions",
+  historicalData: "Historical Data",
+  forecast: "Forecast",
+
+  packageWeightDistribution: "Package Weight Distribution",
+  statisticalDistributionOfPackageWeights: "Statistical distribution of package weights",
+  weightRange: "Weight Range",
+  median: "Median",
+  min: "Min",
+  q1: "Q1",
+  q3: "Q3",
+  max: "Max",
+  medianToQ1: "Median to Q1",
+  count: "Count",
+  packagenumber: "packages",
+  weight: "Weight",
+
+  monthlyShippingCosts: "Monthly Shipping Costs",
+  expensesOverTime: "Expenses over time (in €)",
+
   
   // User profile
   myAccount: "My Account",
@@ -487,7 +516,6 @@ export default {
   pendingShipments: "Pending Shipments",
   completedShipments: "Completed Shipments",
   packageDetails: "Package Details",
-  weight: "Weight",
   dimensions: "Dimensions",
   estimatedDelivery: "Estimated Delivery",
   shippingMethod: "Shipping Method",

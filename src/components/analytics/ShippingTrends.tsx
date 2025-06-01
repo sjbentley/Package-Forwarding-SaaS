@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -19,13 +18,16 @@ import {
 } from "recharts";
 import { packageChartConfig } from '@/config/chartConfig';
 import { monthlyData } from '@/data/analyticsData';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const ShippingTrends: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <Card className="bg-[#0D0F12] border-white/10 text-white h-full">
       <CardHeader className="space-y-1 sm:space-y-2">
-        <CardTitle className="text-center text-sm sm:text-base">Shipping Volume Trends & Forecast</CardTitle>
-        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">Historical data with future predictions</CardDescription>
+        <CardTitle className="text-center text-sm sm:text-base">{t('shippingVolumeTrends')}</CardTitle>
+        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">{t('historicalDataWithForecast')}</CardDescription>
       </CardHeader>
       <CardContent className="h-[250px] sm:h-[300px] md:h-[350px] p-1 sm:p-6 pr-2 sm:pr-4">
         <ChartContainer config={packageChartConfig} className="h-full w-full">
@@ -86,8 +88,8 @@ const ShippingTrends: React.FC = () => {
                     return (
                       <ChartLegendContent 
                         payload={[
-                          { value: "Historical Data", color: "#9b87f5", dataKey: "packages" },
-                          { value: "Forecast", color: "#6E59A5", dataKey: "forecast" }
+                          { value: t('historicalData'), color: "#9b87f5", dataKey: "packages" },
+                          { value: t('forecast'), color: "#6E59A5", dataKey: "forecast" }
                         ]}
                         className="flex items-center justify-center mt-2 gap-4 text-xs sm:text-sm" 
                         layout="horizontal"

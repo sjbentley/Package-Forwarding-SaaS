@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -18,6 +17,7 @@ import { COLORS } from '@/config/chartConfig';
 import { packageTypeConfig } from '@/config/chartConfig';
 import { radarData } from '@/data/analyticsData';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface PackageTypeAnalysisProps {
   filteredData: typeof radarData;
@@ -35,12 +35,13 @@ interface PackageTypeAnalysisProps {
 
 const PackageTypeAnalysis: React.FC<PackageTypeAnalysisProps> = ({ filteredData, radarPayload }) => {
   const isMobile = useIsMobile();
-  
+  const { t } = useTranslation();
+
   return (
     <Card className="bg-[#0D0F12] border-white/10 text-white flex flex-col h-full">
       <CardHeader className="pb-2">
-        <CardTitle className="text-center text-sm sm:text-base md:text-lg">Package Type Analysis</CardTitle>
-        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">Distribution by category</CardDescription>
+        <CardTitle className="text-center text-sm sm:text-base md:text-lg">{t('packageTypeAnalysis')}</CardTitle>
+        <CardDescription className="text-gray-400 text-center text-xs sm:text-sm">{t('distributionByCategory')}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col items-center justify-center p-0 sm:p-2">
         <div className="w-full h-[220px] sm:h-[250px] md:h-[300px] flex items-center justify-center">
@@ -74,7 +75,7 @@ const PackageTypeAnalysis: React.FC<PackageTypeAnalysisProps> = ({ filteredData,
                   return null;
                 }} />
                 <Radar 
-                  name="Package Types" 
+                  name={t('packageTypes')}
                   dataKey="value" 
                   stroke="#9b87f5" 
                   fill="#9b87f5" 

@@ -40,6 +40,35 @@ const StoreCTASection: React.FC = () => {
       description: t('storeCtaToastDesc'),
       duration: 5000,
     });
+
+      toast({
+      title: "Erfolgreich!",
+      description: "Ihr Konto wurde erstellt. Willkommen bei PakSend®!",
+      duration: 5000,
+    });
+
+    const subject = encodeURIComponent("Anfrage zur virtuellen Adresse");
+    const body = encodeURIComponent(
+    `Hallo PakSend-Team,
+
+    ich möchte mich für eine virtuelle Adresse registrieren und bitte um weitere Informationen zur Nutzung Ihres Services.
+
+    Hier sind meine Daten:
+
+    Vorname: ${firstName}
+    Nachname: ${lastName}
+    E-Mail: ${email}
+    Telefon: ${phone}
+    Land: ${country}
+
+    Ich freue mich auf Ihre Rückmeldung.
+
+    Viele Grüße,
+    ${firstName} ${lastName}`
+    );
+
+    window.location.href = `mailto:paksend.de@gmail.com?subject=${subject}&body=${body}`;
+    
     setIsOpen(false);
     setFirstName('');
     setLastName('');
