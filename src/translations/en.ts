@@ -402,7 +402,6 @@ export default {
   max: "Max",
   medianToQ1: "Median to Q1",
   count: "Count",
-  packagenumber: "packages",
   weight: "Weight",
 
   monthlyShippingCosts: "Monthly Shipping Costs",

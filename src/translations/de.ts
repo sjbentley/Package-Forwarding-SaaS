@@ -410,7 +410,6 @@ export default {
   max: "Max",
   medianToQ1: "Median bis Q1",
   count: "Anzahl",
-  packagenumber: "Pakete",
   weight: "Gewicht",
 
   monthlyShippingCosts: "Monatliche Versandkosten",
