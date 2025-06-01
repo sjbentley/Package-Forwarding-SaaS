@@ -389,7 +389,7 @@ export default {
 
   shippingVolumeTrends: "Shipping Volume Trends & Forecast",
   historicalDataWithForecast: "Historical data with future predictions",
-  historicalData: "Historical Data",
+  historicalData: "Total Packages",
   forecast: "Forecast",
 
   packageWeightDistribution: "Package Weight Distribution",

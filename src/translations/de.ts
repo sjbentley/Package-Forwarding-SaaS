@@ -397,7 +397,7 @@ export default {
 
   shippingVolumeTrends: "Versandvolumen-Trends & Prognose",
   historicalDataWithForecast: "Historische Daten mit zukünftigen Prognosen",
-  historicalData: "Historische Daten",
+  historicalData: "Gesamtpakete",
   forecast: "Prognose",
 
   packageWeightDistribution: "Paketgewichtsverteilung",
