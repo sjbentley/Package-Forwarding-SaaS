@@ -66,7 +66,7 @@ const ShippingTrends: React.FC = () => {
               />
               <Area 
                 type="monotone" 
-                dataKey="packagenumber" 
+                dataKey="package" 
                 stroke="#9b87f5" 
                 strokeWidth={2}
                 fill="#9b87f5" 
@@ -88,7 +88,7 @@ const ShippingTrends: React.FC = () => {
                     return (
                       <ChartLegendContent 
                         payload={[
-                          { value: t('historicalData'), color: "#9b87f5", dataKey: "packagenumber" },
+                          { value: t('historicalData'), color: "#9b87f5", dataKey: "package" },
                           { value: t('forecast'), color: "#6E59A5", dataKey: "forecast" }
                         ]}
                         className="flex items-center justify-center mt-2 gap-4 text-xs sm:text-sm" 
