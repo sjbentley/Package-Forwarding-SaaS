@@ -4,7 +4,7 @@ export const RETAILER_COLORS = ['#9b87f5', '#7E69AB', '#6E59A5', '#D6BCFA', '#8B
 
 export const packageChartConfig = {
   packages: {
-    label: "Total Packages",
+
     theme: {
       light: "#9b87f5",
       dark: "#9b87f5",
@@ -25,7 +25,7 @@ export const packageChartConfig = {
     },
   },
   forecast: {
-    label: "Forecast",
+
     theme: {
       light: "#6E59A5",
       dark: "#6E59A5",

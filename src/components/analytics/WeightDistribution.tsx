@@ -93,7 +93,7 @@ const WeightDistribution: React.FC = () => {
                       <p className="text-white font-medium">{t('median')}: {data.median} kg</p>
                       <p className="text-gray-300">{t('q3')}: {data.q3} kg</p>
                       <p className="text-gray-300">{t('max')}: {data.max} kg</p>
-                      <p className="text-white mt-1">{t('count')}: {data.count} {t('packagenumber')}</p>
+                      <p className="text-white mt-1">{t('count')}: {data.count} {t('packages')}</p>
                     </div>
                   );
                 }}

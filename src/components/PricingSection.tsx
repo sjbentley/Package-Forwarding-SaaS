@@ -113,7 +113,10 @@ const PricingSection = () => {
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button className={`w-full py-6 ${tier.isPopular ? 'bg-deutscher-purple hover:bg-deutscher-purple-light' : 'bg-gray-800 hover:bg-gray-700'}`}>
+                <Button 
+                className={`w-full py-6 ${tier.isPopular ? 'bg-deutscher-purple hover:bg-deutscher-purple-light' : 'bg-gray-800 hover:bg-gray-700'}`}
+                onClick={() => window.location.href = "https://buy.stripe.com/aFa9ATbZSbVV9ZpgSWgEg02"}
+                >
                   {tier.ctaText}
                 </Button>
               </CardFooter>

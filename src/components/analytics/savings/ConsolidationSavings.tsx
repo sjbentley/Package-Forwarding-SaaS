@@ -83,7 +83,7 @@ const ConsolidationSavings: React.FC = () => {
           </ResponsiveContainer>
         </ChartContainer>
         <div className="flex justify-center">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 -mt-6">
             <div 
               className="h-3 w-3 rounded-[2px]" 
               style={{ backgroundColor: "#9b87f5" }}
