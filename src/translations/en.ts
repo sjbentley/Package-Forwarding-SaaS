@@ -178,7 +178,7 @@ export default {
   testimonial1Author: "Markus Schmidt",
   testimonial1Role: "Tech Enthusiast",
   testimonial2Content: "As a small business owner, I rely on U.S. suppliers. Predictive analytics helps me plan inventory much more efficiently than before.",
-  testimonial2Author: "Lisa Müller",
+  testimonial2Author: "Lisa Mueller",
   testimonial2Role: "Business Owner",
   testimonial3Content: "Fair prices and outstanding AI support, without any hidden fees or confusing shipping options.",
   testimonial3Author: "Thomas Weber",
